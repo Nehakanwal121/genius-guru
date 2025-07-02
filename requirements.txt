@@ -1,12 +1,20 @@
+# Backend requirements
 fastapi
-uvicorn[standard]
-python-dotenv
-openai
-langchain
-langchain-community
+uvicorn
 pydantic
+python-dotenv
+langchain
+openai
+httpx
+
+# Frontend requirements
 streamlit
 pandas
-jinja2
 requests
-httpx
+
+# CORS and other utils
+python-multipart
+jinja2
+
+# Required for Langchain compatibility
+langchain-community
