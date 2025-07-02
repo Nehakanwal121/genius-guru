@@ -4,3 +4,7 @@ streamlit
 openai
 pydantic
 python-dotenv
+langchain
+requests
+pandas
+jinja2
