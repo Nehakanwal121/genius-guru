@@ -107,3 +107,8 @@ async def get_quiz_html(subject: str, level: str, num_questions: int = 5):
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
+
+# ✅ / root endpoint to fix 404 at base URL
+@app.get("/")
+async def root():
+    return {"message": "Backend is running!"}
