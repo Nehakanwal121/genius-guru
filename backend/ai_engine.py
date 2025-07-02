@@ -1,5 +1,4 @@
 
-
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage
 import os
@@ -35,9 +34,25 @@ def generate_tutoring_response(subject, level, question, learning_style, backgro
     try:
         prompt = _create_tutoring_prompt(subject, level, question, learning_style, background, language)
         logger.info(f"Generating tutoring response for subject: {subject}, level: {level}")
+        
         llm = get_llm()
         response = llm([HumanMessage(content=prompt)])
-        return format_tutoring_response(response.content, learning_style)
+
+        # ✅ Extract response content safely
+        content = None
+        if hasattr(response, "content"):
+            content = response.content
+        elif hasattr(response, "generations"):
+            content = response.generations[0][0].text
+        elif isinstance(response, list) and hasattr(response[0], "content"):
+            content = response[0].content
+
+        if not content:
+            raise Exception("LLM returned no usable response content.")
+
+        logger.info("LLM response extracted successfully")
+        return format_tutoring_response(content, learning_style)
+
     except Exception as e:
         logger.error(f"Error generating tutoring response: {str(e)}")
         raise Exception(f"Failed to generate tutoring response: {str(e)}")
