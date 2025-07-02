@@ -1,11 +1,12 @@
 fastapi
 uvicorn[standard]
-streamlit
-openai
-pydantic
 python-dotenv
+openai
 langchain
 langchain-community
-requests
+pydantic
+streamlit
 pandas
 jinja2
+requests
+httpx
