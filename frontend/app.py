@@ -8,7 +8,9 @@ st.set_page_config(page_title="🧠 AI Tutor", layout="wide")
 st.title("🧠 AI-Powered Tutor & Quiz App")
 
 # ✅ Backend API URL
-API_URL = "https://genius-guru-5.onrender.com"
+
+API_ENDPOINT = "https://genius-guru-7.onrender.com"
+
 
 # ✅ Sidebar
 with st.sidebar:
