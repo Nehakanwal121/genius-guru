@@ -6,7 +6,7 @@ import os
 from typing import List, Dict, Any, Optional
 from dotenv import load_dotenv
 
-from ai_engine import generate_tutoring_response, generate_quiz
+from backend.ai_engine import generate_tutoring_response, generate_quiz
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
